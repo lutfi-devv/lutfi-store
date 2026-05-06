@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lutfi Store - Toko Buku</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <div id="splashScreen" class="splash">
+        <div class="splash-content">
+            <h1>📚 Lutfi Store</h1>
+            <p>Toko Buku Digital</p>
+        </div>
+    </div>
+
+    <div id="loginPage" class="page hidden">
+        <div class="container">
+            <h2>Selamat Datang</h2>
+            <button id="googleLogin" class="btn-google">🔐 Login dengan Google</button>
+            <div class="divider">atau</div>
+            <input type="email" id="email" placeholder="Email" class="input">
+            <input type="password" id="password" placeholder="Password" class="input">
+            <button id="registerBtn" class="btn-secondary">Buat Akun</button>
+            <button id="loginBtn" class="btn-primary">Login</button>
+        </div>
+    </div>
+
+    <div id="mainApp" class="page hidden">
+        <div class="header">
+            <h2>📖 Lutfi Store</h2>
+            <div class="cart-icon" id="cartIcon">🛒 <span id="cartCount">0</span></div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="products">Produk</button>
+            <button class="tab-btn" data-tab="orders">Pesanan Saya</button>
+            <button id="logoutBtn" class="tab-btn logout">Logout</button>
+        </div>
+
+        <div id="productsTab" class="tab-content active">
+            <div id="productList" class="product-grid"></div>
+        </div>
+
+        <div id="ordersTab" class="tab-content hidden">
+            <div id="orderList" class="order-list"></div>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Checkout</h3>
+            <input type="text" id="alamat" placeholder="Alamat Lengkap" class="input">
+            <div class="bank-info">
+                <p>💳 Transfer ke:</p>
+                <p><strong>Sea Bank</strong></p>
+                <p>No Rek: <strong>901872895494</strong></p>
+                <p>a/n: Lutfi Yusuf Al Azka</p>
+            </div>
+            <p>Total: Rp <span id="totalAmount">0</span></p>
+            <button id="confirmPaymentBtn" class="btn-primary">Saya Sudah Transfer & Upload Bukti</button>
+            <input type="file" id="paymentProof" accept="image/*" class="input">
+        </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

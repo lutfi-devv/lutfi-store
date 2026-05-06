@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Lutfi Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Login Admin</h1>
+        <input type="text" id="adminUser" placeholder="Username" class="input">
+        <input type="password" id="adminPass" placeholder="Password" class="input">
+        <button id="adminLoginBtn" class="btn-primary">Login</button>
+    </div>
+
+    <div id="adminPanel" class="hidden">
+        <h2>📊 Dashboard Lutfi Store</h2>
+        <button id="logoutAdminBtn" class="logout">Logout</button>
+        
+        <h3>Tambah Buku Baru</h3>
+        <input type="text" id="productName" placeholder="Nama Buku" class="input">
+        <input type="text" id="productAuthor" placeholder="Penulis" class="input">
+        <input type="number" id="productPrice" placeholder="Harga" class="input">
+        <input type="text" id="productImage" placeholder="URL Gambar" class="input">
+        <button id="addProductBtn" class="btn-primary">Tambah Produk</button>
+        
+        <h3>Daftar Pesanan (Real-time)</h3>
+        <div id="adminOrderList"></div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
